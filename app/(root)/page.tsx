@@ -5,4 +5,5 @@ const HomePage = () => {
         <Button>Button</Button>
     )
 }
+
 export default HomePage
