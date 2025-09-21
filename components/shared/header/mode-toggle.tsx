@@ -2,14 +2,14 @@
 import {useTheme} from "next-themes";
 import {
     DropdownMenu,
-    DropdownMenuTrigger,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuContent,
-    DropdownMenuCheckboxItem
+    DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import {SunIcon,MoonIcon,SunMoon} from "lucide-react";
+import {MoonIcon, SunIcon, SunMoon} from "lucide-react";
 
 const ModeToggle = () => {
     const {theme, setTheme} = useTheme();
