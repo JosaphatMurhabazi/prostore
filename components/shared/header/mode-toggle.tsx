@@ -10,9 +10,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
 import {MoonIcon, SunIcon, SunMoon} from "lucide-react";
+import {useState,useEffect} from "react";
 
 const ModeToggle = () => {
+    const [mounted, setMounted] = useState(false);
     const {theme, setTheme} = useTheme();
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    if (!mounted) return null;
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -33,10 +40,10 @@ const ModeToggle = () => {
                     System
                 </DropdownMenuCheckboxItem>
                 <DropdownMenuSeparator/>
-                <DropdownMenuCheckboxItem checked={theme==='dark'} onClick={()=>setTheme('system')}>
+                <DropdownMenuCheckboxItem checked={theme==='dark'} onClick={()=>setTheme('dark')}>
                     Dark
                 </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem checked={theme==='dark'} onClick={()=>setTheme('light')}>
+                <DropdownMenuCheckboxItem checked={theme==='light'} onClick={()=>setTheme('light')}>
                     Light
                 </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
