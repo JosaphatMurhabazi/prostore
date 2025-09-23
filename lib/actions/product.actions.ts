@@ -1,4 +1,4 @@
-import {prisma} from "@/prisma/client";
+import {prisma} from "@/db/prisma";
 import {convertToPlainObject} from "@/lib/utils";
 import {LATEST_PRODUCTS_LIMIT} from "@/lib/constants";
 
