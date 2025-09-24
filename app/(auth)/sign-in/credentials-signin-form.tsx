@@ -31,7 +31,7 @@ const CredentialsSignInForm = () => {
     return (
         <form action={action}>
             <input type='hidden' name='callbackUrl' value={callbackUrl}/>
-            <div className='space-y-6'>
+            <div className='space-y-4'>
                 <div>
                     <Label htmlFor="email">Email Address</Label>
                     <Input type="email" id="email" name="email" required placeholder='Email' autoComplete='off'

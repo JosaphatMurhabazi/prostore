@@ -22,9 +22,9 @@ const SignUpPage = async (props: { searchParams: Promise<{ callbackUrl: string }
     return (
         <div className='w-full max-w-md mx-auto'>
             <Card>
-                <CardHeader className='space-y-4'>
+                <CardHeader className='space-y-2'>
                     <Link href='/' className='flex-center'>
-                        <Image src='/images/logo.svg' width='100' height='100' alt={`${APP_NAME} logo`}
+                        <Image src='/images/logo.svg' width='80' height='80' alt={`${APP_NAME} logo`}
                                priority={true}/>
                     </Link>
                     <CardTitle className='text-center'>Create Account</CardTitle>
@@ -32,7 +32,7 @@ const SignUpPage = async (props: { searchParams: Promise<{ callbackUrl: string }
                         Enter your information below to sign up
                     </CardDescription>
                 </CardHeader>
-                <CardContent className='space-y-4'>
+                <CardContent className='space-y-2'>
                     <SignUpForm />
                 </CardContent>
             </Card>

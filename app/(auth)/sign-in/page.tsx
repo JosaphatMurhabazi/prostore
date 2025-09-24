@@ -24,7 +24,7 @@ const SignInPage = async (props: { searchParams: Promise<{ callbackUrl: string }
             <Card>
                 <CardHeader className='space-y-4'>
                     <Link href='/' className='flex-center'>
-                        <Image src='/images/logo.svg' width='100' height='100' alt={`${APP_NAME} logo`}
+                        <Image src='/images/logo.svg' width='80' height='80' alt={`${APP_NAME} logo`}
                                priority={true}/>
                     </Link>
                     <CardTitle className='text-center'>Sign In</CardTitle>

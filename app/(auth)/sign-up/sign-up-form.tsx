@@ -31,7 +31,7 @@ const SignUpForm = () => {
     return (
         <form action={action}>
             <input type='hidden' name='callbackUrl' value={callbackUrl} />
-            <div className='space-y-6'>
+            <div className='space-y-4'>
                 <div>
                     <Label htmlFor="name">Name</Label>
                     <Input type="text" id="name" name="name" required placeholder='name' autoComplete='off'

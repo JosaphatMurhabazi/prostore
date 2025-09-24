@@ -7,7 +7,7 @@ import UserButton from "@/components/shared/user-button";
 
 const Menu = () => {
     return (
-        <div className='flex justify-end gap-3'>
+        <div className='flex justify-end gap-2'>
             <nav className="hidden md:flex w-full max-w-xs gap-1">
                 <ModeToggle />
                 <Button asChild variant='ghost'>
@@ -22,7 +22,7 @@ const Menu = () => {
                     <SheetTrigger className='align-middle'>
                         <EllipsisVertical/>
                     </SheetTrigger>
-                    <SheetContent className='flex flex-col items-start p-4'>
+                    <SheetContent className='flex flex-col items-start p-3'>
                         <SheetTitle>Menu</SheetTitle>
                         <ModeToggle/>
                         <Button asChild variant='ghost'>
