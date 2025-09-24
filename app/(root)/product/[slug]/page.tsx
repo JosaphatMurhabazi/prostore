@@ -7,13 +7,13 @@ import ProductPrice from "@/components/shared/product/product-price";
 import ProductImages from "@/components/shared/product/product-images";
 
 interface Props {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 const ProductDetailsPage =async ({params}: Props) => {
-    const {slug}  = params;
-    const product = await getProductBySlug(slug)
-    if(!product) notFound();
+    const { slug } = await params;
+    const product = await getProductBySlug(slug);
+    if (!product) notFound();
 
     return (
         <>
