@@ -15,8 +15,8 @@ const CredentialsSignInForm = () => {
         message: '',
     });
 
-    const searchParams = useSearchParams() || '/';
-    const callbackUrl = searchParams.get('callbackUrl');
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/';
 
     const SignInButton = () => {
         const {pending} = useFormStatus();
@@ -30,7 +30,7 @@ const CredentialsSignInForm = () => {
 
     return (
         <form action={action}>
-            <input type='hidden' name='callbackUrl' value={callbackUrl!}/>
+            <input type='hidden' name='callbackUrl' value={callbackUrl}/>
             <div className='space-y-6'>
                 <div>
                     <Label htmlFor="email">Email Address</Label>
