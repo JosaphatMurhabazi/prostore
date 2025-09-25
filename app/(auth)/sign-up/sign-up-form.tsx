@@ -34,12 +34,11 @@ const SignUpForm = () => {
             <div className='space-y-4'>
                 <div>
                     <Label htmlFor="name">Name</Label>
-                    <Input type="text" id="name" name="name" required placeholder='name' autoComplete='off'
-                           defaultValue={signUpDefaultValues.name}/>
+                    <Input type="text" id="name" name="name" placeholder='name' autoComplete='off' defaultValue={signUpDefaultValues.name}/>
                 </div>
                 <div>
                     <Label htmlFor="email">Email Address</Label>
-                    <Input type="email" id="email" name="email" required placeholder='Email' autoComplete='off' defaultValue={signUpDefaultValues.email}/>
+                    <Input type="email" id="email" name="email" placeholder='Email' autoComplete='off' defaultValue={signUpDefaultValues.email}/>
                 </div>
                 <div>
                     <Label htmlFor="password">Password</Label>
@@ -47,8 +46,7 @@ const SignUpForm = () => {
                 </div>
                 <div>
                     <Label htmlFor="confirmPassword">Confirm Password</Label>
-                    <Input type="password" id="confirmPassword" autoComplete='off' name="confirmPassword" required
-                           placeholder='Confirm Password' defaultValue={signUpDefaultValues.confirmPassword}/>
+                    <Input type="password" id="confirmPassword" autoComplete='off' name="confirmPassword" required placeholder='Confirm Password' defaultValue={signUpDefaultValues.confirmPassword}/>
                 </div>
                 <div>
                     <SignUpButton/>
