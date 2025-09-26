@@ -17,18 +17,27 @@ export function formatNumberWithDecimal(num: number): string {
 
 // Format errors
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function formatError(error:any):string{
-    if(error.name==='ZodError'){
+export function formatError(error: any): string {
+    if (error.name === 'ZodError') {
         // Handle Zod error
         // @ts-expect-error @typescript-eslint/explicit-any
         const errorMessages = error.issues.map(err => err.message);
         return errorMessages.join('. ');
-    }else if(error.name === 'PrismaClientKnownRequestError' && error.code==='P2002'){
+    } else if (error.name === 'PrismaClientKnownRequestError' && error.code === 'P2002') {
         // Handle Prisma error
         const field = error.meta.target ? error.meta.target[0] : 'Field';
         return `${field.charAt(0).toUpperCase() + field.slice(1)} already exists`;
-    }else{
+    } else {
         // Handle other errors
-        return  typeof error.message ==='string' ? error.message:JSON.stringify(error.message);
+        return typeof error.message === 'string' ? error.message : JSON.stringify(error.message);
+    }
+}
+
+// Round number to 2 Decimal places
+export function round2(value: number | string) {
+    if (typeof value === 'number') {
+        return Math.round((value + Number.EPSILON) * 100) / 100;
+    } else {
+        return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
     }
 }
