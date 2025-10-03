@@ -6,14 +6,14 @@ import {useTransition} from "react";
 import {ShippingAddress} from '@/types'
 import {shippingAddressSchema} from '@/lib/validations'
 import {zodResolver} from "@hookform/resolvers/zod"
-import {useForm} from "react-hook-form"
+import {useForm, SubmitHandler} from "react-hook-form"
 import {z} from 'zod'
 import {shippingAddressDefaultValues} from "@/lib/constants";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form';
-import { Input } from "@/components/ui/input"
+import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
-import {ArrowRight, Loader, Minus} from "lucide-react";
-
+import {ArrowRight, Loader} from "lucide-react";
+import {updateUserAddress} from "@/lib/actions/user.actions";
 
 
 const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
@@ -25,9 +25,15 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
         defaultValues: address || shippingAddressDefaultValues,
     })
 
-    const onSubmit =(values:ShippingAddress)=>{
-        console.log(values)
-        return;
+    const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = async (values) => {
+        startTransition(async () => {
+            const res = await updateUserAddress(values)
+            if (!res.success) {
+                toast.error(res.message);
+                return;
+            }
+            router.push('/payment-method');
+        })
 
     }
 
@@ -45,13 +51,13 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
                             <FormField
                                 control={form.control}
                                 name="fullName"
-                                render={({ field }) => (
+                                render={({field}) => (
                                     <FormItem className='w-full'>
                                         <FormLabel>Full Name</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Enter full name" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
@@ -60,13 +66,13 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
                             <FormField
                                 control={form.control}
                                 name="streetAddress"
-                                render={({ field }) => (
+                                render={({field}) => (
                                     <FormItem className='w-full'>
                                         <FormLabel>Street Address</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Street Address" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
@@ -75,13 +81,13 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
                             <FormField
                                 control={form.control}
                                 name="city"
-                                render={({ field }) => (
+                                render={({field}) => (
                                     <FormItem className='w-full'>
                                         <FormLabel>City</FormLabel>
                                         <FormControl>
                                             <Input placeholder="City" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
@@ -90,13 +96,13 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
                             <FormField
                                 control={form.control}
                                 name="postalCode"
-                                render={({ field }) => (
+                                render={({field}) => (
                                     <FormItem className='w-full'>
                                         <FormLabel>Postal Code</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Postal Code" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
@@ -105,13 +111,13 @@ const ShippingAddressForm = ({address}: { address: ShippingAddress }) => {
                             <FormField
                                 control={form.control}
                                 name="country"
-                                render={({ field }) => (
+                                render={({field}) => (
                                     <FormItem className='w-full'>
                                         <FormLabel>Country</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Country" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
