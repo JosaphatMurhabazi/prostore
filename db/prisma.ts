@@ -14,13 +14,11 @@ export const prisma =
         result: {
             product: {
                 price: {
-                    needs: {price: true},
                     compute(product: Product) {
                         return product.price.toString();
                     },
                 },
                 rating: {
-                    needs: {rating: true},
                     compute(product: Product) {
                         return product.rating.toString();
                     },
@@ -78,7 +76,7 @@ export const prisma =
                     }
                 }
             },
-            orderItem:{
+            OrderItem:{
                 price:{
                     compute(cart){
                         return cart.price.toString();

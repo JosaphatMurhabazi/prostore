@@ -77,7 +77,7 @@ const PlaceOrderPage = async () => {
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
-                                    {cart.items.map((item,) => (
+                                    {cart.items.map((item) => (
                                         <TableRow key={item.slug}>
                                             <TableCell>
                                                 <Link href={`/product/{item.slug}`} className='flex items-center'>
