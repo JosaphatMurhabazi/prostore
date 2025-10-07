@@ -43,8 +43,7 @@ const OrderDetailsTable = ({order}: { order: Order }) => {
                             <h2 className='text-xl pb-4'>Shipping Address</h2>
                             <p>{shippingAddress.fullName}</p>
                             <p className='mb-2'>
-                                {shippingAddress.streetAddress}, {shippingAddress.city}
-                                {shippingAddress.postalCode}, {shippingAddress.country}
+                                {shippingAddress.streetAddress}, {shippingAddress.city}, {shippingAddress.postalCode}, {shippingAddress.country}
                             </p>
                             {isDelivered ?(
                                 <Badge variant='secondary'>Delivered at {formatDateTime(deliveredAt!).dateTime}</Badge>
